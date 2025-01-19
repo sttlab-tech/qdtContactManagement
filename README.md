@@ -74,7 +74,6 @@ docker build --build-arg GIT_TOKEN=<github-token> -t <your-image-name> .
 ```
  
 
-
 ####    Deployment in a simple Docker host using docker-compose
 
 A docker-compose.yml file is available under ./resources/docker-compose, which creates a full stack environment to run the microservice with:
