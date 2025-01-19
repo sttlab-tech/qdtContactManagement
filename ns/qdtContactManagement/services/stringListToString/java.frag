@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Values version="2.0">
+  <value name="name">stringListToString</value>
+  <value name="encodeutf8">true</value>
+  <value name="body">Ly8gcGlwZWxpbmUNCklEYXRhQ3Vyc29yIHBpcGVsaW5lQ3Vyc29yID0gcGlwZWxpbmUuZ2V0Q3Vy
+c29yKCk7DQpTdHJpbmdbXQlsaXN0ID0gSURhdGFVdGlsLmdldFN0cmluZ0FycmF5KCBwaXBlbGlu
+ZUN1cnNvciwgImxpc3QiICk7IA0KcGlwZWxpbmVDdXJzb3IuZGVzdHJveSgpOw0KDQpTdHJpbmdK
+b2luZXIgam9pbmVyID0gbmV3IFN0cmluZ0pvaW5lcigiLCAiKTsNCmZvciAoU3RyaW5nIGVsZW1l
+bnQgOiBsaXN0KSB7DQogICAgam9pbmVyLmFkZChlbGVtZW50KTsNCn0NCg0KLy8gcGlwZWxpbmUN
+CklEYXRhQ3Vyc29yIHBpcGVsaW5lQ3Vyc29yXzEgPSBwaXBlbGluZS5nZXRDdXJzb3IoKTsNCklE
+YXRhVXRpbC5wdXQoIHBpcGVsaW5lQ3Vyc29yXzEsICJzdHJpbmciLCBqb2luZXIudG9TdHJpbmco
+KSApOw0KcGlwZWxpbmVDdXJzb3JfMS5kZXN0cm95KCk7DQoJ</value>
+</Values>

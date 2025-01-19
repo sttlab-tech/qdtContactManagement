@@ -1,0 +1,1 @@
+podman login -u kubeadmin -p $(oc whoami -t) default-route-openshift-image-registry.apps.678663c1feba7dc9c41f356d.ocp.techzone.ibm.com/demo

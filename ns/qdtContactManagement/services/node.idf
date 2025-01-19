@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Values version="2.0">
+  <value name="node_type">interface</value>
+  <value name="node_subtype">unknown</value>
+  <value name="node_nsName">qdtContactManagement.services</value>
+  <value name="node_pkg">qdtContactManagement</value>
+  <value name="is_public">false</value>
+  <value name="shared"></value>
+  <value name="encodeutf8">true</value>
+  <value name="extends"></value>
+  <array name="implements" type="value" depth="1">
+  </array>
+  <array name="imports" type="value" depth="1">
+    <value>java.text.ParseException</value>
+    <value>java.text.SimpleDateFormat</value>
+    <value>java.util.Date</value>
+    <value>java.util.StringJoiner</value>
+    <value>java.util.TimeZone</value>
+    <value>java.util.stream.Collectors</value>
+  </array>
+</Values>

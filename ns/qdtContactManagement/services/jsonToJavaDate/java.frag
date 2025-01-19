@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Values version="2.0">
+  <value name="name">jsonToJavaDate</value>
+  <value name="encodeutf8">true</value>
+  <value name="body">Ly8gcGlwZWxpbmUNCklEYXRhQ3Vyc29yIHBpcGVsaW5lQ3Vyc29yID0gcGlwZWxpbmUuZ2V0Q3Vy
+c29yKCk7DQpTdHJpbmcJanNvbkRhdGUgPSBJRGF0YVV0aWwuZ2V0U3RyaW5nKCBwaXBlbGluZUN1
+cnNvciwgImpzb25EYXRlIiApOw0KcGlwZWxpbmVDdXJzb3IuZGVzdHJveSgpOw0KDQpTaW1wbGVE
+YXRlRm9ybWF0IGZvcm1hdHRlciA9IG5ldyBTaW1wbGVEYXRlRm9ybWF0KCJ5eXl5LU1NLWRkJ1Qn
+SEg6bW06c3MuU1NTWiIpOw0KDQpEYXRlIGRhdGUgPSBudWxsOw0KdHJ5IHsNCmRhdGUgPSBmb3Jt
+YXR0ZXIucGFyc2UoanNvbkRhdGUpOyANCn0gY2F0Y2ggKFBhcnNlRXhjZXB0aW9uIGUpIHsNCnRo
+cm93IG5ldyBTZXJ2aWNlRXhjZXB0aW9uKGUuZ2V0TWVzc2FnZSgpKTsNCn0NCg0KDQovLyBwaXBl
+bGluZQ0KSURhdGFDdXJzb3IgcGlwZWxpbmVDdXJzb3JfMSA9IHBpcGVsaW5lLmdldEN1cnNvcigp
+Ow0KLy9PYmplY3QgamF2YURhdGUgPSBuZXcgT2JqZWN0KCk7DQpJRGF0YVV0aWwucHV0KCBwaXBl
+bGluZUN1cnNvcl8xLCAiamF2YURhdGUiLCBkYXRlICk7DQpwaXBlbGluZUN1cnNvcl8xLmRlc3Ry
+b3koKTs=</value>
+</Values>
