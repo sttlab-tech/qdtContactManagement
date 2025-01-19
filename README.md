@@ -66,7 +66,7 @@ ADD --chown=sagadmin . /opt/softwareag/IntegrationServer/packages/qdtContactMana
 
 # We also need to add another repo, which contains our framework. We use the webMethods package manager (wpm) to do so
 RUN /opt/softwareag/wpm/bin/wpm.sh install -u staillansag -p $GIT_TOKEN -r https://github.com/staillansag -d /opt/softwareag/IntegrationServer qdtFramework
-```
+``` 
   
 To perform the build, use the following command:
 ```
