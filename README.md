@@ -72,8 +72,7 @@ To perform the build, use the following command:
 ```
 docker build --build-arg GIT_TOKEN=<github-token> -t <your-image-name> .
 ```
-
-You can use this Github PAT token, which only grants read access to the qdtFramework repo: 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  
+ 
 
 
 ####    Deployment in a simple Docker host using docker-compose
