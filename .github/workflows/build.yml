@@ -39,7 +39,7 @@ jobs:
 
     - name: Build .env
       run: |
-        echo "MSR_NAME=${{ secrets.REGISTRY_URL }}/msr-contact-management:${{ vars.MAJOR_VERSION }}.${{ vars.MINOR_VERSION }}.${{ github.run_number }}" > ./resources/docker-compose/.env
+        echo "MSR_IMAGE=${{ secrets.REGISTRY_URL }}/msr-contact-management:${{ vars.MAJOR_VERSION }}.${{ vars.MINOR_VERSION }}.${{ github.run_number }}" > ./resources/docker-compose/.env
         echo "DB_SERVER_NAME=${{ secrets.DB_SERVER_NAME }}" >> ./resources/docker-compose/.env
         echo "DB_PORT=${{ secrets.DB_PORT }}" >> ./resources/docker-compose/.env
         echo "DB_DATABASE_NAME=${{ secrets.DB_DATABASE_NAME }}" >> ./resources/docker-compose/.env
