@@ -37,8 +37,8 @@ jobs:
 
     - name: Check cluster access
       run: |
-        oc get pods --namespace $NAMESPACE
-        oc create deployment hello-world --image=quay.io/redhattraining/hello-world-nginx:latest
+        kubectl get pods --namespace $NAMESPACE
+        kubectl create deployment hello-world --image=quay.io/redhattraining/hello-world-nginx:latest
       env:
         NAMESPACE: ${{ secrets.NAMESPACE }}
         HELM_CHART_NAME: ${{ secrets.HELM_CHART_NAME }}
