@@ -47,7 +47,7 @@ jobs:
 
     - name: Deploy using Helm
       run: |
-        helm upgrade --install webmethods/microservicesruntime -f ./resources/helm/msr-values.yaml \
+        helm upgrade --install contact-management webmethods/microservicesruntime -f ./resources/helm/msr-values.yaml \
           --namespace $NAMESPACE
       env:
         NAMESPACE: ${{ secrets.NAMESPACE }}
