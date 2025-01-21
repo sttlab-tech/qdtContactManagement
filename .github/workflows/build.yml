@@ -52,3 +52,9 @@ jobs:
         DB_DATABASE_NAME: ${{ secrets.DB_DATABASE_NAME }}
         DB_USERNAME: ${{ secrets.DB_USERNAME }}
         DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+
+    - name: Create docker compose stack
+      run: |
+        cd ./resources/docker-compose
+        docker compose up -d
+        docker logs -f msr-contact-management
