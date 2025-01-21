@@ -15,7 +15,7 @@ services:
   #     - postgres-vol:/var/lib/postgresql/data
 
   umserver:
-    image: default-route-openshift-image-registry.apps.678663c1feba7dc9c41f356d.ocp.techzone.ibm.com/demo2025/universalmessaging-server/universalmessaging-server:11.1.0.1
+    image: default-route-openshift-image-registry.apps.678663c1feba7dc9c41f356d.ocp.techzone.ibm.com/demo2025/universalmessaging-server:11.1.0.1
     container_name: umserver
     networks:
       - wm
