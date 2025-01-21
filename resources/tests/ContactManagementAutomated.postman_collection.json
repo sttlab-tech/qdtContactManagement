@@ -31,7 +31,7 @@
 									"});",
 									"",
 									"let currentDateTime = new Date();",
-									"currentDateTime.setMinutes(currentDateTime.getMinutes() - 1); ",
+									"currentDateTime.setMinutes(currentDateTime.getMinutes()); ",
 									"let adjustedDateTime = currentDateTime.toISOString();",
 									"",
 									"pm.collectionVariables.set(\"startDateTime\", adjustedDateTime);",
