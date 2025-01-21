@@ -6,7 +6,7 @@ statefulSet: false
 image:
   repository: "default-route-openshift-image-registry.apps.678663c1feba7dc9c41f356d.ocp.techzone.ibm.com/demo2025/msr-contact-management"
   pullPolicy: Always
-  tag:        "0.0.3"
+  tag:        "1.0.4"
 
 imagePullSecrets: 
  - name: contacts-regcred
