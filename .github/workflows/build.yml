@@ -36,8 +36,6 @@ jobs:
       docker:
         image: docker:20.10-dind
         options: --privileged
-        ports:
-          - 15555:15555
     needs: build-and-push
 
     steps:
