@@ -4,12 +4,12 @@ replicaCount: 2
 statefulSet: false
 
 image:
-  repository: "default-route-openshift-image-registry.apps.678663c1feba7dc9c41f356d.ocp.techzone.ibm.com/demo/msr-contact-management"
+  repository: "default-route-openshift-image-registry.apps.678663c1feba7dc9c41f356d.ocp.techzone.ibm.com/demo2025/msr-contact-management"
   pullPolicy: Always
   tag:        "0.0.3"
 
 imagePullSecrets: 
- - name: ocp-regcred
+ - name: cr-regcred
 
 nameOverride: ""
 fullnameOverride: "stt-contact-management"
@@ -174,7 +174,6 @@ prometheus:
   ## -- Only used on ServiceMonitor
   scrapeTimeout: 10s
 
-# -- Create and enable ServiceMonitor. The default is `false`.
 serviceMonitor:
   enabled: true
 
