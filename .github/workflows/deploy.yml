@@ -37,8 +37,14 @@ jobs:
 
     - name: Check cluster access
       run: |
-        kubectl get pods --namespace $NAMESPACE
-        kubectl create deployment hello-world --image=quay.io/redhattraining/hello-world-nginx:latest
+        kubectl get nodes --namespace $NAMESPACE
+      env:
+        NAMESPACE: ${{ secrets.NAMESPACE }}
+        HELM_CHART_NAME: ${{ secrets.HELM_CHART_NAME }}
+
+    - name: Install webMethods Helm charts
+      run: |
+        helm repo add webmethods https://ibm.github.io/webmethods-helm-charts/charts
       env:
         NAMESPACE: ${{ secrets.NAMESPACE }}
         HELM_CHART_NAME: ${{ secrets.HELM_CHART_NAME }}
