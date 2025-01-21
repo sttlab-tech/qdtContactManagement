@@ -80,6 +80,7 @@ jobs:
 
         while true; do
             echo "Checking MSR..."
+            curl -v $url
             http_status=$(curl -o /dev/null -s -w "%{http_code}\n" $url)
             echo "HTTP status: $http_status"
 
