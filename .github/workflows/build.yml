@@ -10,10 +10,6 @@ jobs:
   build-and-push:
     runs-on: ubuntu-latest
 
-    env:
-      MAJOR_VERSION: 1 
-      MINOR_VERSION: 0 
-
     steps:
     - name: Checkout Code
       uses: actions/checkout@v3
@@ -28,9 +24,31 @@ jobs:
 
     - name: Build microservice Image
       run: |
-        docker build -t ${{ secrets.REGISTRY_URL }}/msr-contact-management:${{ env.MAJOR_VERSION }}.${{ env.MINOR_VERSION }}.${{ github.run_number }} --build-arg REGISTRY_URL=${{ secrets.REGISTRY_URL }} .
+        docker build -t ${{ secrets.REGISTRY_URL }}/msr-contact-management:${{ vars.MAJOR_VERSION }}.${{ vars.MINOR_VERSION }}.${{ github.run_number }} --build-arg REGISTRY_URL=${{ secrets.REGISTRY_URL }} .
 
     - name: Push microservice Image
       run: |
-        docker push ${{ secrets.REGISTRY_URL }}/msr-contact-management:${{ env.MAJOR_VERSION }}.${{ env.MINOR_VERSION }}.${{ github.run_number }}
+        docker push ${{ secrets.REGISTRY_URL }}/msr-contact-management:${{ vars.MAJOR_VERSION }}.${{ vars.MINOR_VERSION }}.${{ github.run_number }}
 
+  integration-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
+
+    - name: Build .env
+      run: |
+        echo "MSR_NAME=${{ secrets.REGISTRY_URL }}/msr-contact-management:${{ vars.MAJOR_VERSION }}.${{ vars.MINOR_VERSION }}.${{ github.run_number }}" > ./resources/docker-compose/.env
+        echo "DB_SERVER_NAME=${{ secrets.DB_SERVER_NAME }}" >> ./resources/docker-compose/.env
+        echo "DB_PORT=${{ secrets.DB_PORT }}" >> ./resources/docker-compose/.env
+        echo "DB_DATABASE_NAME=${{ secrets.DB_DATABASE_NAME }}" >> ./resources/docker-compose/.env
+        echo "DB_USERNAME=${{ secrets.DB_USERNAME }}" >> ./resources/docker-compose/.env
+        echo "DB_PASSWORD=${{ secrets.DB_PASSWORD }}" >> ./resources/docker-compose/.env
+        cat ./resources/docker-compose/.env
+      env:
+        DB_SERVER_NAME: ${{ secrets.DB_SERVER_NAME }}
+        DB_PORT: ${{ secrets.DB_PORT }}
+        DB_DATABASE_NAME: ${{ secrets.DB_DATABASE_NAME }}
+        DB_USERNAME: ${{ secrets.DB_USERNAME }}
+        DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
