@@ -66,4 +66,29 @@ jobs:
       run: |
         cd ./resources/docker-compose
         docker compose up -d
-        docker logs -f msr-contact-management
+
+    - name: Wait for MSR to be ready
+      run: |
+        url="http://localhost:15555"
+        max_wait=120
+        elapsed_time=0
+        interval=5
+
+        while true; do
+            http_status=$(curl -o /dev/null -s -w "%{http_code}\n" $url)
+            echo "HTTP status: $http_status"
+
+            if [ "$http_status" -eq 200 ]; then
+                exit 0
+            else
+                echo "MSR not ready, trying again in $interval seconds..."
+            fi
+
+            sleep $interval
+            ((elapsed_time+=interval))
+
+            if [ "$elapsed_time" -ge "$max_wait" ]; then
+                echo "Error. MSR not ready after $max_wait seconds."
+                exit 1
+            fi
+        done
