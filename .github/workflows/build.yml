@@ -78,11 +78,9 @@ jobs:
         elapsed_time=0
         interval=5
 
-        sleep 100
-
         while true; do
             echo "Checking MSR..."
-            curl -v $url
+            curl -o /dev/null -s -w "%{http_code}\n" $url
             http_status=$(curl -o /dev/null -s -w "%{http_code}\n" $url)
             echo "HTTP status: $http_status"
 
