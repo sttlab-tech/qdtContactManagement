@@ -17,11 +17,12 @@ services:
   umserver:
     image: default-route-openshift-image-registry.apps.678663c1feba7dc9c41f356d.ocp.techzone.ibm.com/demo2025/universalmessaging-server:11.1.0.1
     container_name: umserver
-    networks:
-      - wm
-    ports:
-      - "9000:9000"
-      - "9200:9200"
+    network_mode: "host"
+    # networks:
+    #   - wm
+    # ports:
+    #   - "9000:9000"
+    #   - "9200:9200"
     env_file:
       - .env
     volumes:
@@ -38,11 +39,12 @@ services:
     depends_on:
       - umserver
       # - postgresql
-    networks:
-      - wm
-    ports:
-      - "15555:5555"
-      - "15543:5543"
+    network_mode: "host"
+    # networks:
+    #   - wm
+    # ports:
+    #   - "15555:5555"
+    #   - "15543:5543"
     volumes:
       - ./application.properties:/opt/softwareag/IntegrationServer/application.properties
     env_file:
@@ -52,8 +54,8 @@ services:
       retries: 24
       test: ["CMD-SHELL", "curl -o /dev/null -s -w '%{http_code}' http://localhost:5555 | grep -qE '^(200|3[0-9]{2})$'"]
 
-networks:
-  wm:
+# networks:
+#   wm:
 
 volumes:
 #  postgres-vol:

@@ -69,7 +69,7 @@ jobs:
 
     - name: Wait for MSR to be ready
       run: |
-        url="http://msr-contact-management:5555"
+        url="http://localhost:5555"
         max_wait=120
         elapsed_time=0
         interval=5
