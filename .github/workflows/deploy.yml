@@ -37,7 +37,7 @@ jobs:
 
     - name: Check cluster access
       run: |
-        kubectl get nodes --namespace $NAMESPACE
+        kubectl get pods --namespace $NAMESPACE
       env:
         NAMESPACE: ${{ secrets.NAMESPACE }}
         HELM_CHART_NAME: ${{ secrets.HELM_CHART_NAME }}
