@@ -40,19 +40,14 @@ jobs:
         kubectl get pods --namespace $NAMESPACE
       env:
         NAMESPACE: ${{ secrets.NAMESPACE }}
-        HELM_CHART_NAME: ${{ secrets.HELM_CHART_NAME }}
 
     - name: Install webMethods Helm charts
       run: |
         helm repo add webmethods https://ibm.github.io/webmethods-helm-charts/charts
+
+    - name: Deploy using Helm
+      run: |
+        helm upgrade --install webmethods/microservicesruntime -f ./resources/helm/msr-values.yaml \
+          --namespace $NAMESPACE
       env:
         NAMESPACE: ${{ secrets.NAMESPACE }}
-        HELM_CHART_NAME: ${{ secrets.HELM_CHART_NAME }}
-
-    # - name: Deploy using Helm
-    #   run: |
-    #     helm upgrade --install $HELM_CHART_NAME -f ./resources/helm/msr-values.yaml \
-    #       --namespace $NAMESPACE
-    #   env:
-    #     NAMESPACE: ${{ secrets.NAMESPACE }}
-    #     HELM_CHART_NAME: ${{ secrets.HELM_CHART_NAME }}
