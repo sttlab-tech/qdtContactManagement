@@ -80,12 +80,14 @@ jobs:
 
         while true; do
             echo "Checking MSR..."
-            curl -o /dev/null -s -w "%{http_code}\n" $url
-            http_status=$(curl -o /dev/null -s -w "%{http_code}\n" $url)
+            http_status=$(curl -o /dev/null -s -w "%{http_code}" $url || echo "000")
             echo "HTTP status: $http_status"
 
             if [ "$http_status" -eq 200 ]; then
+                echo "MSR is ready!"
                 exit 0
+            elif [ "$http_status" -eq 000 ]; then
+                echo "Error: Failed to connect to $url"
             else
                 echo "MSR not ready, trying again in $interval seconds..."
             fi
@@ -94,7 +96,7 @@ jobs:
             ((elapsed_time+=interval))
 
             if [ "$elapsed_time" -ge "$max_wait" ]; then
-                echo "Error. MSR not ready after $max_wait seconds."
+                echo "Error: MSR not ready after $max_wait seconds."
                 exit 1
             fi
         done
