@@ -78,6 +78,8 @@ jobs:
         elapsed_time=0
         interval=5
 
+        sleep 100
+
         while true; do
             echo "Checking MSR..."
             curl -v $url
