@@ -48,6 +48,30 @@ jobs:
     - name: Deploy using Helm
       run: |
         helm upgrade --install contact-management webmethods/microservicesruntime -f ./resources/helm/msr-values.yaml \
-          --namespace $NAMESPACE
+          --namespace $NAMESPACE --wait
       env:
         NAMESPACE: ${{ secrets.NAMESPACE }}
+
+  newman_tests:
+    needs: deploy
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
+
+    - name: Install Newman
+      run: |
+        npm install -g newman
+
+    - name: Run Newman Tests
+      run: |
+        newman run ./resources/tests/ContactManagementAutomated.postman_collection.json -e ./resources/tests/ContactManagement.postman_environment.json \
+          --env-var "url=$ROOT_CONTACTS_URL/rad/qdtContactManagement.api:ContactManagementAPI" \
+          --env-var "userName=$CONTACTS_ADMIN_USERNAME" \
+          --env-var "password=$CONTACTS_ADMIN_PASSWORD" \
+          --insecure
+      env:
+        ROOT_CONTACTS_URL: ${{ secrets.ROOT_CONTACTS_URL }}
+        CONTACTS_ADMIN_USERNAME: ${{ secrets.CONTACTS_ADMIN_USERNAME }}
+        CONTACTS_ADMIN_PASSWORD: ${{ secrets.CONTACTS_ADMIN_PASSWORD }}
