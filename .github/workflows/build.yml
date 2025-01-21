@@ -50,7 +50,7 @@ jobs:
         echo "DB_DATABASE_NAME=${{ secrets.DB_DATABASE_NAME }}" >> ./resources/docker-compose/.env
         echo "DB_USERNAME=${{ secrets.DB_USERNAME }}" >> ./resources/docker-compose/.env
         echo "DB_PASSWORD=${{ secrets.DB_PASSWORD }}" >> ./resources/docker-compose/.env
-        echo "ADMIN_PASSWORD=${{ secrets.ADMIN_PASSWORD }}" >> ./resources/docker-compose/.env
+        echo "ADMIN_PASSWORD=${{ secrets.CONTACTS_ADMIN_PASSWORD }}" >> ./resources/docker-compose/.env
         cat ./resources/docker-compose/.env
       env:
         DB_SERVER_NAME: ${{ secrets.DB_SERVER_NAME }}
@@ -58,7 +58,7 @@ jobs:
         DB_DATABASE_NAME: ${{ secrets.DB_DATABASE_NAME }}
         DB_USERNAME: ${{ secrets.DB_USERNAME }}
         DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
-        ADMIN_PASSWORD: ${{ secrets.CONTACTS_ADMIN_PASSWORD }}
+        CONTACTS_ADMIN_PASSWORD: ${{ secrets.CONTACTS_ADMIN_PASSWORD }}
 
     - name: Docker login
       run: |
