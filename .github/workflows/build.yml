@@ -28,4 +28,4 @@ jobs:
 
     - name: Build microservice Image
       run: |
-        docker build -t ${{ secrets.REGISTRY_URL }}/msr-contact-management:${{ env.MAJOR_VERSION }}.${{ env.MINOR_VERSION }}.${{ github.run_number }} .
+        docker build -t ${{ secrets.REGISTRY_URL }}/msr-contact-management:${{ env.MAJOR_VERSION }}.${{ env.MINOR_VERSION }}.${{ github.run_number }} --build-arg REGISTRY_URL=${{ secrets.REGISTRY_URL }} .

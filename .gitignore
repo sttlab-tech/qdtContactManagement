@@ -2,4 +2,4 @@
 *-secrets.yml
 *-secrets.yaml
 .env
-
+.DS_Store
