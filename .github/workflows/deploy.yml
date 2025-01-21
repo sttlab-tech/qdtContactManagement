@@ -27,7 +27,7 @@ jobs:
     - name: Log in to OpenShift
       run: |
         kubectl config set-cluster openshift --server=$OPENSHIFT_SERVER_URL --insecure-skip-tls-verify=true
-        kubectl config set-credentials github-actions --token=$OPENSHIFT_TOKEN
+        kubectl config set-credentials github-actions --token=$(kubectl create token github-actions)
         kubectl config set-context openshift --cluster=openshift --namespace=$NAMESPACE --user=github-actions
         kubectl config use-context openshift
       env:
