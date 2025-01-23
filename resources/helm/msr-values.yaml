@@ -140,8 +140,8 @@ microservicesruntime:
 
       user.Administrator.password=$secret{ADMIN_PASSWORD}
 
-      settings.watt.server.audit.service.include=qdtContactManagement.*
-      settings.watt.server.audit.service.exclude=wm.,com.,pub.
+      # settings.watt.server.audit.service.include=qdtContactManagement.*
+      # settings.watt.server.audit.service.exclude=wm.,com.,pub.
 
 
 extraPorts:
