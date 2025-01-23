@@ -66,6 +66,7 @@ jobs:
 
     - name: Run Newman Tests
       run: |
+        sleep 60
         newman run ./resources/tests/ContactManagementAutomated.postman_collection.json -e ./resources/tests/ContactManagement.postman_environment.json \
           --env-var "url=$ROOT_CONTACTS_URL/rad/qdtContactManagement.api:ContactManagementAPI" \
           --env-var "userName=$CONTACTS_ADMIN_USERNAME" \

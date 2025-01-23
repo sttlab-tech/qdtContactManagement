@@ -6,7 +6,7 @@ statefulSet: false
 image:
   repository: "default-route-openshift-image-registry.apps.678663c1feba7dc9c41f356d.ocp.techzone.ibm.com/demo2025/msr-contact-management"
   pullPolicy: Always
-  tag:        "1.0.4"
+  tag:        "1.0.28"
 
 imagePullSecrets: 
  - name: cr-regcred
@@ -21,6 +21,27 @@ extraEnvs:
   valueFrom:
     fieldRef:
       fieldPath: metadata.name
+- name: SW_AGENT_COLLECTOR_ESTABLISH_CLOUD_COMMUNICATION
+  value: 'false'
+- name: SW_AGENT_EXTERNAL_ESTABLISH_COMMUNICATION
+  value: 'true'
+- name: SW_AGENT_OTEL_ENDPOINT
+  value: http://simple-collector:4318/v1/traces
+- name: SW_AGENT_OTEL_HEADERS
+  value: 'Content-Type#application/x-protobuf'
+# - name: SW_AGENT_EXT_SYSTEM_USER
+#   value: 
+# - name: SW_AGENT_EXT_SYSTEM_PASSWORD
+#   value: 
+- name: SW_AGENT_EXTERNAL_SUPPORT_LONG_ID
+  value: 'false'
+- name: SW_AGENT_EXTERNAL_API_ERROR_CODES
+  value: '502,503,504'
+- name: SW_AGENT_OTEL_RESOURCE_ATTRIBUTES
+  value: 'service.name#contact-management, service.namespace#demo2025'
+- name: SW_AGENT_TRACE_TRANSFER_INTERVAL
+  value: '1000'
+
 
 secretMounts:
   - name: msr-secrets
@@ -118,6 +139,9 @@ microservicesruntime:
       statisticsdatacollector.monitorConfig.enabled=false
 
       user.Administrator.password=$secret{ADMIN_PASSWORD}
+
+      settings.watt.server.audit.service.include=qdtContactManagement.*
+      settings.watt.server.audit.service.exclude=wm.,com.,pub.
 
 
 extraPorts:
