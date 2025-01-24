@@ -29,10 +29,6 @@ extraEnvs:
   value: http://simple-collector:4318/v1/traces
 - name: SW_AGENT_OTEL_HEADERS
   value: 'Content-Type#application/x-protobuf'
-# - name: SW_AGENT_EXT_SYSTEM_USER
-#   value: 
-# - name: SW_AGENT_EXT_SYSTEM_PASSWORD
-#   value: 
 - name: SW_AGENT_EXTERNAL_SUPPORT_LONG_ID
   value: 'false'
 - name: SW_AGENT_EXTERNAL_API_ERROR_CODES
@@ -41,6 +37,8 @@ extraEnvs:
   value: 'service.name#contact-management, service.namespace#demo2025'
 - name: SW_AGENT_TRACE_TRANSFER_INTERVAL
   value: '1000'
+- name: JMX_ENABLED
+  value: true
 
 
 secretMounts:
